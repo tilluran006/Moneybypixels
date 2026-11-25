@@ -1,0 +1,66 @@
+{
+  "note": "Daily news scan. Official sources first: numbers in a news post must be checked against an official page (RBI, PIB, Income Tax, GST council, NPCI, SEBI) before they go on a slide. News sites are for finding stories, never for the numbers.",
+  "official": [
+    {
+      "name": "RBI press releases",
+      "url": "https://www.rbi.org.in/pressreleases_rss.xml",
+      "status": "works (tested 25 Nov 2026)"
+    },
+    {
+      "name": "RBI notifications",
+      "url": "https://www.rbi.org.in/notifications_rss.xml",
+      "status": "untested"
+    }
+  ],
+  "news": [
+    {
+      "name": "Business Standard Finance",
+      "url": "https://www.business-standard.com/rss/finance-103.rss",
+      "status": "works (tested 25 Nov 2026)"
+    }
+  ],
+  "keywords": [
+    "repo rate",
+    "rbi",
+    "gst",
+    "income tax",
+    "tax slab",
+    "itr",
+    "emi",
+    "home loan",
+    "fd rate",
+    "fixed deposit",
+    "inflation",
+    "cpi",
+    "petrol",
+    "diesel",
+    "lpg",
+    "gold price",
+    "upi",
+    "credit card",
+    "epf",
+    "ppf",
+    "small savings",
+    "nps",
+    "budget",
+    "salary",
+    "minimum wage",
+    "insurance premium",
+    "sebi",
+    "loan",
+    "bank charges",
+    "tds"
+  ],
+  "score_rule": "Pick a story only if it changes what a typical person pays, earns or saves, and the change can be shown with a calculation (e.g. EMI on a ₹50 lakh loan, tax on a ₹12 lakh salary). Market moves (Sensex up 200 points), company results and political statements do not qualify.",
+  "blocked_for_the_fetch_tool": [
+    "Mint, Economic Times, BusinessLine, Moneycontrol (blocked); PIB RSS (fails). Use WebSearch for these instead."
+  ],
+  "search_queries": [
+    "RBI announcement today",
+    "India personal finance news today",
+    "income tax change India this week",
+    "GST rate change today",
+    "petrol diesel price change India today",
+    "small savings interest rates latest quarter"
+  ]
+}

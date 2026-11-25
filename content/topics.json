@@ -1,0 +1,25 @@
+{
+  "note": "Educational backlog, used in order. Reorder freely; a topic is skipped once its id appears in state/log.json. Pillars: trap (money traps), long (long-term maths), data (India data facts), ai (AI and your wallet, max 1 in 10).",
+  "topics": [
+    {"id": "cc-two-year-trap", "pillar": "trap", "title": "The two-year trap: minimum due on a ₹50,000 card bill", "calc": "card_minimum_due, fixed_payment"},
+    {"id": "no-cost-emi", "pillar": "trap", "title": "Is 'no-cost EMI' really no cost? Processing fee + GST + the cash discount you give up", "calc": "no_cost_emi_true_cost"},
+    {"id": "inflation-1-crore", "pillar": "long", "title": "₹1 crore in 20 years won't feel like ₹1 crore", "calc": "present_value, future_cost"},
+    {"id": "home-loan-interest-split", "pillar": "long", "title": "A ₹50 lakh home loan: how much of your first 5 years of EMIs is interest", "calc": "emi (yearly split)"},
+    {"id": "personal-loan-fees", "pillar": "trap", "title": "Personal loan at 14%: what the processing fee and GST really add", "calc": "emi"},
+    {"id": "fd-real-return", "pillar": "long", "title": "Your FD after tax and inflation: is it actually growing?", "calc": "real_return"},
+    {"id": "car-loan-tenure", "pillar": "trap", "title": "Car loan: 5 years vs 7 years, the lower EMI that costs more", "calc": "emi"},
+    {"id": "bnpl-late-fee", "pillar": "trap", "title": "Buy now, pay later: what one missed payment costs", "calc": "fixed fees from issuer terms, cite source"},
+    {"id": "salary-raise-vs-inflation", "pillar": "long", "title": "A 7% raise with 5% inflation: your real raise is 2%", "calc": "real_return"},
+    {"id": "emi-prepayment", "pillar": "long", "title": "Prepaying ₹1 lakh on a home loan: tenure cut vs EMI cut", "calc": "emi"},
+    {"id": "credit-card-cash-withdrawal", "pillar": "trap", "title": "Withdrawing cash on a credit card: fee + interest from day one", "calc": "fees from issuer terms, cite source"},
+    {"id": "retirement-number", "pillar": "long", "title": "What ₹50,000 a month of expenses becomes by the time you're 60", "calc": "future_cost"},
+    {"id": "sip-delay-cost", "pillar": "long", "title": "Starting a ₹5,000 monthly investment at 25 vs 35 (illustrative return, not a promise)", "calc": "sip_future_value"},
+    {"id": "gold-loan-vs-personal", "pillar": "trap", "title": "Gold loan vs personal loan: the true monthly cost", "calc": "emi"},
+    {"id": "education-cost-inflation", "pillar": "long", "title": "A ₹10 lakh degree today: what it may cost in 15 years", "calc": "future_cost"},
+    {"id": "subscriptions-yearly", "pillar": "ai", "title": "What your streaming + AI subscriptions cost per year in ₹", "calc": "simple sums; prices from official pages, cite them"},
+    {"id": "upi-fraud-patterns", "pillar": "ai", "title": "The 4 UPI scam patterns: how 'collect requests' and fake refunds work", "calc": "none; cite NPCI/RBI advisories"},
+    {"id": "rent-vs-emi", "pillar": "long", "title": "Rent ₹25,000 vs EMI on a ₹60 lakh flat: the first-year cash outflow", "calc": "emi"},
+    {"id": "minimum-balance-penalty", "pillar": "trap", "title": "Bank minimum-balance penalties: what a year of shortfall costs", "calc": "bank fee schedules, cite source"},
+    {"id": "interest-on-interest", "pillar": "long", "title": "Compounding in one picture: ₹1 lakh at 8% over 30 years", "calc": "future_cost"}
+  ]
+}

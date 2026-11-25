@@ -1,0 +1,10 @@
+{
+  "name": "moneybypixels-studio",
+  "private": true,
+  "description": "Fonts for the MoneyByPixels slide renderer",
+  "dependencies": {
+    "@fontsource/ibm-plex-mono": "5.0.0",
+    "@fontsource/source-sans-3": "5.0.0",
+    "@fontsource/source-serif-4": "5.0.0"
+  }
+}

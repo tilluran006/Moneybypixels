@@ -1,0 +1,688 @@
+{
+  "slug": "cc-two-year-trap",
+  "date": "2026-11-25",
+  "type": "educational",
+  "topic_id": "cc-two-year-trap",
+  "verdict_style": "night",
+  "title": "The Two-Year Trap: how a ₹50,000 credit card bill becomes ₹1.49 lakh",
+  "footer": [
+    "Assumes ₹50,000 balance, 3.5% interest/month, minimum due 5% of balance (min ₹200), no new spends. Excludes GST and late fees.",
+    "Source: MoneyByPixels calculation · Educational, not financial advice."
+  ],
+  "slides": [
+    {
+      "t": "cover",
+      "style": "paper",
+      "kicker": "Credit cards",
+      "hero": "₹51,486",
+      "headline": "Two years of minimum payments. You've repaid more than you borrowed, and still owe [[₹33,335]].",
+      "deck": "On a ₹50,000 credit-card bill."
+    },
+    {
+      "t": "context",
+      "kicker": "Why it happens",
+      "headline": "How a sensible-looking payment becomes a 15-year habit",
+      "body": "The minimum due is 5% of what you owe. Interest is 3.5% of what you owe. So [[most of each early payment is swallowed by interest]] before it touches the debt.",
+      "figure": "1.5%",
+      "figure_label": "of the balance is all that actually cuts the debt each month (5% − 3.5%)"
+    },
+    {
+      "t": "split",
+      "kicker": "Year one",
+      "headline": "Of ₹28,343 paid in year one, ₹19,169 was interest",
+      "subtitle": "Where your first 12 minimum payments went",
+      "parts": [
+        {
+          "label": "Interest · 68%",
+          "value": 19169.427686035808,
+          "display": "₹19,169",
+          "highlight": true
+        },
+        {
+          "label": "Debt reduced · 32%",
+          "value": 9173.940392602839,
+          "display": "₹9,174"
+        }
+      ]
+    },
+    {
+      "t": "line",
+      "kicker": "The crossover",
+      "headline": "By month 24, you've paid more than you borrowed",
+      "subtitle": "₹, first 5 years of minimum payments",
+      "y_max": 100000,
+      "y_ref": [
+        50000,
+        "₹50,000 borrowed"
+      ],
+      "series": [
+        {
+          "name": "Total paid",
+          "style": "main",
+          "points": [
+            [
+              0,
+              0.0
+            ],
+            [
+              1,
+              2587.5
+            ],
+            [
+              2,
+              5131.659375
+            ],
+            [
+              3,
+              7633.20408046875
+            ],
+            [
+              4,
+              10092.847912120898
+            ],
+            [
+              5,
+              12511.292709592874
+            ],
+            [
+              6,
+              14889.228556707194
+            ],
+            [
+              7,
+              17227.33397838235
+            ],
+            [
+              8,
+              19526.276134244446
+            ],
+            [
+              9,
+              21786.71100899585
+            ],
+            [
+              10,
+              24009.283599595172
+            ],
+            [
+              11,
+              26194.628099301954
+            ],
+            [
+              12,
+              28343.368078638647
+            ],
+            [
+              13,
+              30456.11666332145
+            ],
+            [
+              14,
+              32533.476709210816
+            ],
+            [
+              15,
+              34576.04097433153
+            ],
+            [
+              16,
+              36584.39228801148
+            ],
+            [
+              17,
+              38559.10371718729
+            ],
+            [
+              18,
+              40500.7387299244
+            ],
+            [
+              19,
+              42409.85135619817
+            ],
+            [
+              20,
+              44286.98634598185
+            ],
+            [
+              21,
+              46132.67932468666
+            ],
+            [
+              22,
+              47947.45694599816
+            ],
+            [
+              23,
+              49731.83704215269
+            ],
+            [
+              24,
+              51486.32877169664
+            ],
+            [
+              25,
+              53211.43276477072
+            ],
+            [
+              26,
+              54907.64126596081
+            ],
+            [
+              27,
+              56575.438274755965
+            ],
+            [
+              28,
+              58215.2996836538
+            ],
+            [
+              29,
+              59827.6934139526
+            ],
+            [
+              30,
+              61413.07954926889
+            ],
+            [
+              31,
+              62971.91046681864
+            ],
+            [
+              32,
+              64504.630966499426
+            ],
+            [
+              33,
+              66011.67839781057
+            ],
+            [
+              34,
+              67493.48278464725
+            ],
+            [
+              35,
+              68950.46694800441
+            ],
+            [
+              36,
+              70383.04662662534
+            ],
+            [
+              37,
+              71791.63059562937
+            ],
+            [
+              38,
+              73176.62078315257
+            ],
+            [
+              39,
+              74538.41238503477
+            ],
+            [
+              40,
+              75877.39397758544
+            ],
+            [
+              41,
+              77193.94762846088
+            ],
+            [
+              42,
+              78488.44900568416
+            ],
+            [
+              43,
+              79761.26748483896
+            ],
+            [
+              44,
+              81012.7662544679
+            ],
+            [
+              45,
+              82243.30241970556
+            ],
+            [
+              46,
+              83453.2271041755
+            ],
+            [
+              47,
+              84642.88555018057
+            ],
+            [
+              48,
+              85812.61721721504
+            ],
+            [
+              49,
+              86962.75587882669
+            ],
+            [
+              50,
+              88093.62971785634
+            ],
+            [
+              51,
+              89205.56142008225
+            ],
+            [
+              52,
+              90298.86826629587
+            ],
+            [
+              53,
+              91373.86222283542
+            ],
+            [
+              54,
+              92430.85003060293
+            ],
+            [
+              55,
+              93470.13329259033
+            ],
+            [
+              56,
+              94492.00855993944
+            ],
+            [
+              57,
+              95496.76741656045
+            ],
+            [
+              58,
+              96484.69656233306
+            ],
+            [
+              59,
+              97456.07789491398
+            ],
+            [
+              60,
+              98411.18859017418
+            ]
+          ]
+        },
+        {
+          "name": "Still owed",
+          "style": "compare",
+          "points": [
+            [
+              0,
+              50000.0
+            ],
+            [
+              1,
+              49162.5
+            ],
+            [
+              2,
+              48339.028125
+            ],
+            [
+              3,
+              47529.34940390625
+            ],
+            [
+              4,
+              46733.232801390826
+            ],
+            [
+              5,
+              45950.45115196753
+            ],
+            [
+              6,
+              45180.781095172075
+            ],
+            [
+              7,
+              44424.00301182794
+            ],
+            [
+              8,
+              43679.90096137982
+            ],
+            [
+              9,
+              42948.262620276706
+            ],
+            [
+              10,
+              42228.87922138708
+            ],
+            [
+              11,
+              41521.54549442884
+            ],
+            [
+              12,
+              40826.05960739716
+            ],
+            [
+              13,
+              40142.22310897325
+            ],
+            [
+              14,
+              39469.840871897955
+            ],
+            [
+              15,
+              38808.72103729367
+            ],
+            [
+              16,
+              38158.674959919
+            ],
+            [
+              17,
+              37519.517154340356
+            ],
+            [
+              18,
+              36891.065242005156
+            ],
+            [
+              19,
+              36273.13989920157
+            ],
+            [
+              20,
+              35665.56480588994
+            ],
+            [
+              21,
+              35068.16659539128
+            ],
+            [
+              22,
+              34480.774804918474
+            ],
+            [
+              23,
+              33903.22182693609
+            ],
+            [
+              24,
+              33335.34286133491
+            ],
+            [
+              25,
+              32776.97586840755
+            ],
+            [
+              26,
+              32227.961522611724
+            ],
+            [
+              27,
+              31688.143167107974
+            ],
+            [
+              28,
+              31157.366769058914
+            ],
+            [
+              29,
+              30635.480875677178
+            ],
+            [
+              30,
+              30122.336571009586
+            ],
+            [
+              31,
+              29617.787433445177
+            ],
+            [
+              32,
+              29121.68949393497
+            ],
+            [
+              33,
+              28633.90119491156
+            ],
+            [
+              34,
+              28154.283349896792
+            ],
+            [
+              35,
+              27682.69910378602
+            ],
+            [
+              36,
+              27219.013893797608
+            ],
+            [
+              37,
+              26763.095411076498
+            ],
+            [
+              38,
+              26314.813562940966
+            ],
+            [
+              39,
+              25874.040435761704
+            ],
+            [
+              40,
+              25440.650258462694
+            ],
+            [
+              41,
+              25014.519366633445
+            ],
+            [
+              42,
+              24595.526167242333
+            ],
+            [
+              43,
+              24183.551103941023
+            ],
+            [
+              44,
+              23778.47662295001
+            ],
+            [
+              45,
+              23380.187139515598
+            ],
+            [
+              46,
+              22988.56900492871
+            ],
+            [
+              47,
+              22603.510474096154
+            ],
+            [
+              48,
+              22224.901673655044
+            ],
+            [
+              49,
+              21852.634570621325
+            ],
+            [
+              50,
+              21486.60294156342
+            ],
+            [
+              51,
+              21126.702342292232
+            ],
+            [
+              52,
+              20772.83007805884
+            ],
+            [
+              53,
+              20424.885174251354
+            ],
+            [
+              54,
+              20082.76834758264
+            ],
+            [
+              55,
+              19746.381977760633
+            ],
+            [
+              56,
+              19415.63007963314
+            ],
+            [
+              57,
+              19090.418275799286
+            ],
+            [
+              58,
+              18770.653769679648
+            ],
+            [
+              59,
+              18456.245319037516
+            ],
+            [
+              60,
+              18147.103209943638
+            ]
+          ]
+        }
+      ],
+      "annotations": [
+        {
+          "x": 24,
+          "y": 51486.32877169664,
+          "text": "Paid ₹51,486",
+          "color": "#BD3F0E"
+        },
+        {
+          "x": 24,
+          "y": 33335.34286133491,
+          "text": "Still owed ₹33,335",
+          "color": "#17405F",
+          "dx": -30,
+          "dy": 62
+        }
+      ],
+      "x_ticks": [
+        [
+          0,
+          "0"
+        ],
+        [
+          12,
+          "1 yr"
+        ],
+        [
+          24,
+          "2 yrs"
+        ],
+        [
+          36,
+          "3 yrs"
+        ],
+        [
+          48,
+          "4 yrs"
+        ],
+        [
+          60,
+          "5 yrs"
+        ]
+      ]
+    },
+    {
+      "t": "timeline",
+      "kicker": "The long tail",
+      "headline": "What's still owed, year by year",
+      "milestones": [
+        {
+          "label": "Year 1",
+          "value": "₹40,826",
+          "size": 0.8165211921479433
+        },
+        {
+          "label": "Year 2",
+          "value": "₹33,335",
+          "size": 0.6667068572266982
+        },
+        {
+          "label": "Year 5",
+          "value": "₹18,147",
+          "size": 0.36294206419887276
+        },
+        {
+          "label": "Year 10",
+          "value": "₹6,586",
+          "size": 0.13172694196493864
+        },
+        {
+          "label": "Month 185",
+          "value": "₹0",
+          "size": 0,
+          "style": "compare"
+        }
+      ],
+      "body": "As the balance falls, so does the minimum due, so the last few thousand rupees take years."
+    },
+    {
+      "t": "receipt",
+      "kicker": "The other ending",
+      "title": "IF YOU'D PAID ₹5,000 A MONTH",
+      "lines": [
+        [
+          "Amount borrowed",
+          "₹50,000"
+        ],
+        [
+          "Months of payments",
+          "13"
+        ],
+        [
+          "Interest charged",
+          "₹12,633"
+        ]
+      ],
+      "total": [
+        "TOTAL PAID",
+        "₹62,633"
+      ],
+      "stamp": "PAID OFF · MONTH 13",
+      "after": "Versus ₹1,49,095 over 185 months on the minimum."
+    },
+    {
+      "t": "verdict",
+      "statement": "Same debt. About {{87% less interest}}. 172 fewer months.",
+      "action": "Every rupee above the minimum goes straight at the balance."
+    },
+    {
+      "t": "sources",
+      "sources": [
+        "MoneyByPixels month-by-month calculation (method below).",
+        "Your card's own terms. Interest rates and minimum-due rules vary by issuer, so check your statement."
+      ],
+      "method": "Each month: balance grows by 3.5% interest, then the minimum due (5% of balance, at least ₹200) is paid. No new spending. GST on interest and late fees are excluded, so real costs are higher.",
+      "save": "Save this before your next statement."
+    }
+  ],
+  "caption": "You paid back ₹51,486 on a ₹50,000 card bill. And you still owe ₹33,335.\n\nThat's what 2 years of \"minimum due only\" looks like. The minimum is 5% of what you owe, but interest eats 3.5% of it, so only about 1.5% actually cuts the debt each month.\n\nKeep paying only the minimum and it takes 185 months (about 15 years) and ₹99,095 in interest to clear.\nPay ₹5,000 a month instead: 13 months, ₹12,633 interest. About 87% less.\n\nSend this to the friend who \"just pays the minimum.\" 📩\nSave it for your next statement.\n\nAssumptions: 3.5% monthly interest, 5% minimum due (min ₹200), no new spends. Excludes GST and late fees. Your card's terms may differ.\nEducational, not financial advice.",
+  "hashtags": [
+    "creditcard",
+    "personalfinanceindia",
+    "moneytips"
+  ],
+  "alt_text": "Eight-slide explainer. Paying only the minimum due on a ₹50,000 credit card bill at 3.5% monthly interest: after 2 years you have paid ₹51,486 and still owe ₹33,335; it takes 185 months and ₹99,095 interest to clear. Paying ₹5,000 a month clears it in 13 months with ₹12,633 interest.",
+  "source_links": [],
+  "checklist": [
+    "Card interest of 3.5%/month is typical but varies by issuer; the caption says so"
+  ]
+}

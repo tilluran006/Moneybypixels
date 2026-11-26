@@ -80,17 +80,17 @@ spec["reel"] = {
   "bpm": 84,
   "footer": "Assumes ₹50,000 balance, 3.5%/month interest, minimum due 5% (min ₹200), no new spends. Educational, not financial advice.",
   "scenes": [
-    {"t": "hook", "bars": 1, "question": "Paying only the minimum due?", "value": round(tp[24]), "format": "inr",
+    {"vo": "Paying only the minimum due? You've paid fifty-one thousand on a fifty thousand bill... and still owe thirty-three.", "t": "hook", "bars": 1, "question": "Paying only the minimum due?", "value": round(tp[24]), "format": "inr",
      "caption": f"paid on a ₹50,000 bill.|You still owe [[{inr(b[24])}]]."},
-    {"t": "units", "bars": 1, "headline": "Two years in,|this much is still left:", "value": round(b[24]), "format": "inr",
+    {"vo": "Two-thirds of it is still there.", "t": "units", "bars": 1, "headline": "Two years in,|this much is still left:", "value": round(b[24]), "format": "inr",
      "highlight": True, "n": 50, "k": round(b[24] / 1000), "cols": 10, "unit": "Each square = ₹1,000 · ■ still owed"},
-    {"t": "fill", "bars": 1.5, "headline": "Pay only the minimum:", "counter": "Each square = one month · month {i}", "n": mn["months"],
+    {"vo": "Minimum only? Fifteen years to clear.", "t": "fill", "bars": 1.5, "headline": "Pay only the minimum:", "counter": "Each square = one month · month {i}", "n": mn["months"],
      "style": "main", "meter": {"label": "Still owed", "values": [round(v) for v in b]},
      "final": f"15 years, 5 months. {{{{{inr(mn['interest'])}}}}} interest."},
-    {"t": "fill", "bars": 1.5, "headline": "Pay ₹5,000 a month instead?", "n": fx["months"], "style": "compare",
+    {"vo": "Five thousand a month? Thirteen months.", "t": "fill", "bars": 1.5, "headline": "Pay ₹5,000 a month instead?", "n": fx["months"], "style": "compare",
      "meter": {"label": "Still owed", "values": [round(v) for v in fx["balance"]]},
      "big": "#<span style='font-size:90px'> months</span>", "after": f"Interest: <b style='color:#17405F'>{inr(fx['interest'])}</b> instead of <s>{inr(mn['interest'])}</s>"},
-    {"t": "verdict", "bars": 1, "kicker": "The verdict", "statement": "Same debt.|{{#% less interest.}}", "value": round(100 * saved),
+    {"vo": "Same debt. Eighty-seven percent less interest.", "t": "verdict", "bars": 1, "kicker": "The verdict", "statement": "Same debt.|{{#% less interest.}}", "value": round(100 * saved),
      "cta": "Full breakdown in our carousel →"}
   ],
   "caption": f"""Paid back {inr(tp[24])} on a ₹50,000 card bill… and still owe {inr(b[24])}.

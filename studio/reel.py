@@ -14,7 +14,10 @@ Scene types (fields):
   fill     headline, counter ('{i}' = squares so far), n, style (main|compare),
            meter? {label, values[n+1]}, big? ('#' = count), after?, final?
   verdict  kicker?, statement ('#' = counted value), value?, cta
-Common: bars (length in music bars, 1 bar = 2.86 s at 84 bpm).
+Common: bars (length in music bars, 1 bar = 2.86 s at 84 bpm); vo (voiceover line for the
+scene, numbers spelled out in words). With voiceover, each scene's length is set from its
+line (in quarter bars, so cuts stay on the beat) and the music ducks under the voice.
+Set reel["voice"] = "off" for a music-only reel.
 Text markup: '|' line break, {{x}} accent colour, [[x]] highlighter.
 """
 from __future__ import annotations
@@ -186,7 +189,7 @@ html,body{margin:0}*{box-sizing:border-box}
 <script>JS</script>"""
 
 
-def music(path: Path, dur: float, bpm: float, cues: dict) -> None:
+def music(path: Path, dur: float, bpm: float, cues: dict, vo=None) -> None:
     """Original lo-fi bed (Am7-Fmaj7-C-G) with motion-synced cues. No licensing issues."""
     import numpy as np
     import wave
@@ -253,7 +256,16 @@ def music(path: Path, dur: float, bpm: float, cues: dict) -> None:
     for a, b, n in cues["pops"]:
         for j in range(n): pop(a + (b - a) * j / max(n, 1), .025, 700 + 30 * (j % 8))
     for c in cues["thuds"]: thud(c)
-    out = mix * fade + sfx
+    if vo is not None:
+        v = np.zeros(N); v[:min(N, len(vo))] = vo[:N]
+        env = np.convolve((np.abs(v) > 0.01).astype(float), np.ones(int(.25 * SR)) / int(.25 * SR), 'same')
+        duck = 1 - 0.7 * np.clip(env * 3, 0, 1)
+        mix = mix * duck; sfx = sfx * (1 - 0.5 * np.clip(env * 3, 0, 1))
+        bed = (mix * fade + sfx); bed = bed / (np.max(np.abs(bed)) + 1e-9) * .45
+        vv = v / (np.max(np.abs(v)) + 1e-9) * .9
+        out = bed + vv
+    else:
+        out = mix * fade + sfx
     out = out / np.max(np.abs(out)) * .8
     wv = wave.open(str(path), 'wb'); wv.setnchannels(1); wv.setsampwidth(2); wv.setframerate(SR)
     wv.writeframes((out * 32767).astype(np.int16).tobytes()); wv.close()
@@ -275,7 +287,7 @@ def cues_for(reel: dict) -> tuple[float, dict]:
     return t + 0.4 * BAR, {"wipes": wipes, "ticks": ticks, "pops": pops, "thuds": thuds}
 
 
-def check(reel: dict) -> list[str]:
+def check(reel: dict, voiced: bool = False) -> list[str]:
     errs = []
     sc = reel.get("scenes", [])
     if not sc or sc[0]["t"] != "hook": errs.append("first scene must be a hook")
@@ -287,7 +299,8 @@ def check(reel: dict) -> list[str]:
     if len(sc) > 5: errs.append(f"{len(sc)} scenes (max 5: hook, 2-3 middle, verdict)")
     if sc and sc[-1]["t"] != "verdict": errs.append("last scene must be a verdict")
     total = (sum(s["bars"] for s in sc) + 0.4) * 4 * 60 / reel.get("bpm", 84)
-    if not 14 <= total <= 22: errs.append(f"reel length {total:.1f}s (want 15-20s, max 22s)")
+    hi = 25 if voiced else 22
+    if not 14 <= total <= hi: errs.append(f"reel length {total:.1f}s (want 15-20s, max {hi}s)")
     for i, s in enumerate(sc, 1):
         if s.get("n", 0) > 240: errs.append(f"scene {i}: max 240 squares")
         if s["t"] == "units" and s.get("k", 0) > s.get("n", 0): errs.append(f"scene {i}: k > n")
@@ -300,7 +313,31 @@ def render(post_dir: str) -> Path:
     d = Path(post_dir).resolve()
     spec = json.loads((d / "spec.json").read_text())
     reel = spec["reel"]
-    errs = check(reel)
+    voiced = reel.get("voice", "on") != "off" and any(sc.get("vo") for sc in reel["scenes"])
+    vo_track = None
+    if voiced:
+        from studio import voice
+        verr = [e for sc in reel["scenes"] if sc.get("vo") for e in voice.check_text(sc["vo"])]
+        if verr: raise SystemExit("Voiceover check failed:\n- " + "\n- ".join(verr))
+        import numpy as np
+        BAR = 4 * 60 / reel.get("bpm", 84)
+        segs = []
+        for sc in reel["scenes"]:
+            a = voice.say(sc["vo"]) if sc.get("vo") else np.zeros(0, dtype=np.float32)
+            need = (len(a) / voice.SR + 0.5) / BAR
+            floor = {"hook": 0.75, "units": 1.0, "verdict": 1.0}.get(sc["t"], 1.25 if sc.get("n", 0) > 40 else 1.0)
+            sc["bars"] = max(floor, -(-need // 0.25) * 0.25)
+            segs.append(a)
+        SR = 44100
+        t0, pieces = 0.0, []
+        total = (sum(sc["bars"] for sc in reel["scenes"]) + 0.4) * BAR
+        vo_track = np.zeros(int(total * SR) + SR, dtype=np.float32)
+        for sc, a in zip(reel["scenes"], segs):
+            if len(a):
+                x = np.interp(np.arange(int(len(a) * SR / voice.SR)) * voice.SR / SR, np.arange(len(a)), a)
+                i = int((t0 + 0.15) * SR); vo_track[i:i + len(x)] += x[: len(vo_track) - i]
+            t0 += sc["bars"] * BAR
+    errs = check(reel, voiced)
     if errs: raise SystemExit("Reel check failed:\n- " + "\n- ".join(errs))
     out = d / "reel"; out.mkdir(exist_ok=True)
     frames = out / "frames"
@@ -322,7 +359,7 @@ def render(post_dir: str) -> Path:
             pg.screenshot(path=str(frames / f"{i:04d}.png"))
         b.close()
     wav = out / "audio.wav"
-    music(wav, dur, reel.get("bpm", 84), cues)
+    music(wav, dur, reel.get("bpm", 84), cues, vo_track)
     mp4 = out / f"{spec['slug']}_reel.mp4"
     subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-framerate", str(FPS), "-i", str(frames / "%04d.png"), "-i", str(wav),
                     "-c:v", "libx264", "-preset", "veryfast", "-crf", "20", "-pix_fmt", "yuv420p", "-c:a", "aac", "-b:a", "160k",

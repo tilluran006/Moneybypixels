@@ -690,6 +690,7 @@
     "footer": "Assumes ₹50,000 balance, 3.5%/month interest, minimum due 5% (min ₹200), no new spends. Educational, not financial advice.",
     "scenes": [
       {
+        "vo": "Paying only the minimum due? You've paid fifty-one thousand on a fifty thousand bill... and still owe thirty-three.",
         "t": "hook",
         "bars": 1,
         "question": "Paying only the minimum due?",
@@ -698,6 +699,7 @@
         "caption": "paid on a ₹50,000 bill.|You still owe [[₹33,335]]."
       },
       {
+        "vo": "Two-thirds of it is still there.",
         "t": "units",
         "bars": 1,
         "headline": "Two years in,|this much is still left:",
@@ -710,6 +712,7 @@
         "unit": "Each square = ₹1,000 · ■ still owed"
       },
       {
+        "vo": "Minimum only? Fifteen years to clear.",
         "t": "fill",
         "bars": 1.5,
         "headline": "Pay only the minimum:",
@@ -910,6 +913,7 @@
         "final": "15 years, 5 months. {{₹99,095}} interest."
       },
       {
+        "vo": "Five thousand a month? Thirteen months.",
         "t": "fill",
         "bars": 1.5,
         "headline": "Pay ₹5,000 a month instead?",
@@ -938,6 +942,7 @@
         "after": "Interest: <b style='color:#17405F'>₹12,633</b> instead of <s>₹99,095</s>"
       },
       {
+        "vo": "Same debt. Eighty-seven percent less interest.",
         "t": "verdict",
         "bars": 1,
         "kicker": "The verdict",

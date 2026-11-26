@@ -13,6 +13,7 @@ The scheduled task runs at 4:37pm IST on **Wednesday, Friday and Sunday** (carou
 cd <repo>
 npm install            # fonts
 python3 -c "import playwright" || pip install playwright --break-system-packages
+python3 -c "import kokoro_onnx" || pip install kokoro-onnx soundfile --break-system-packages   # free voiceover (reel days)
 which google-chrome || python3 -m playwright install chromium
 python3 -m studio.plan # today's plan: type, topic, verdict style, cover style
 ```
@@ -102,7 +103,9 @@ python3 -m studio.reel posts/<dir>
 python3 -m studio.plan record-reel posts/<dir>
 ```
 
-Reel rules (MOTION.md): 15–20 seconds; scenes `hook` → 2–3 of `units` / `fill` → `verdict`. The hook has a `question` (max 8 words, ends with ?) and a caption with the key figure in [[highlighter]]; every word of it is on screen from frame 0. Don't repeat the hook's line in later scenes. Tell the owner to post it as a Trial Reel first. Every square must mean one stated unit (₹1,000, ₹1, one month…), written on screen. One idea per scene, at most 10 words of headline. Numbers come from the same build script as the carousel. Check `reel/reel_contact_sheet.png` for overlaps before sending. Deliver the MP4, the contact sheet and `caption_reel.md`.
+Reel rules (MOTION.md): 15–20 seconds; scenes `hook` → 2–3 of `units` / `fill` → `verdict`. The hook has a `question` (max 8 words, ends with ?) and a caption with the key figure in [[highlighter]]; every word of it is on screen from frame 0. Don't repeat the hook's line in later scenes. Tell the owner to post it as a Trial Reel first.
+
+Voiceover (free, Kokoro, voice "George"): give every reel scene a `vo` line. Write numbers in words ("fifty-one thousand", "eighty-seven percent"), never digits or ₹/% symbols; the renderer refuses them. Keep the whole script around 40–45 words so the reel stays under 25 s. Scene lengths are set from the voice automatically; the music ducks under it. The first model download (~120 MB from GitHub) happens on the first reel of a fresh session. Every square must mean one stated unit (₹1,000, ₹1, one month…), written on screen. One idea per scene, at most 10 words of headline. Numbers come from the same build script as the carousel. Check `reel/reel_contact_sheet.png` for overlaps before sending. Deliver the MP4, the contact sheet and `caption_reel.md`.
 
 ## 7. After the owner posts
 

@@ -16,5 +16,6 @@
 - **Never static:** slow 3.5% push-in on every scene.
 - **Rhythm:** 84 bpm; scene changes on bar lines; words land a quarter-beat apart.
 - **Easing:** quick in, gentle stop. No bounce, shake, 3D, stock footage, emoji or meme sounds.
-- **Sound:** original lo-fi bed generated in code (no licensing issues) plus cues: pops as squares fill, ticks on count-ups, whoosh on wipes, thud on the verdict. Must still make sense on mute. No voiceover by default.
+- **Sound:** original lo-fi bed generated in code (no licensing issues) plus cues: pops as squares fill, ticks on count-ups, whoosh on wipes, thud on the verdict. Must still make sense on mute.
+- **Voiceover:** free Kokoro voice "George" (British male), one short line per scene, numbers spelled out in words. Music ducks under the voice. Voiced reels may run to 25 s.
 - **Colours:** same as BRAND.md: orange = the main story, blue = the alternative, grey = context, Night for the verdict only.

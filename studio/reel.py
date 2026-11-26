@@ -119,9 +119,9 @@ function render(t){
     w=`<div style="position:absolute;left:${x}px;top:0;width:48px;height:1920px;background:${OR}"></div><div style="position:absolute;left:${x-36}px;top:0;width:20px;height:1920px;background:${EM}"></div>`;}}
   document.getElementById('wipe').innerHTML=w;
   // layers visibility
-  R.scenes.forEach((x,k)=>{x.layers.forEach(el=>{el.style.opacity=k===si?Math.min(seg(t,x.start+0.1,x.start+0.35),1-seg(t,x.start+x.dur-0.15,x.start+x.dur)):0;});
+  R.scenes.forEach((x,k)=>{x.layers.forEach(el=>{el.style.opacity=(x.t==='hook'&&(k===si||inLoop))?(inLoop?seg(t,LOOP+0.1,LOOP+0.35):1-seg(t,x.start+x.dur-0.15,x.start+x.dur)):k===si?Math.min(seg(t,x.start+0.1,x.start+0.35),1-seg(t,x.start+x.dur-0.15,x.start+x.dur)):0;});
     if(x.val&&x.t==='hook')x.val.style.opacity=(k===si||inLoop)?1:0;});
-  if(inLoop){const h=R.scenes[0];h.val.textContent=fmt(0,h.format);
+  if(inLoop){const h=R.scenes[0];h.val.textContent=fmt(h.value,h.format);h.layers.forEach(el=>el.querySelectorAll('.w').forEach(w=>{w.style.opacity=1;w.style.transform='none';}));
     place(i=>{const r=Lrupee(i);return[r[0],r[1],r[2],r[3],r[4]*eo(seg(t,LOOP+0.25+i*0.012,LOOP+0.5+i*0.012))];});return;}
   // pixels
   const prev=si>0?R.scenes[si-1]:null; const mp=seg(t,s.start-0.05,s.start+0.7);
@@ -142,9 +142,10 @@ function render(t){
   if(!(s.t==='fill'&&s.meter))document.getElementById('meter').style.opacity=0;
   place(L);
   // text animation + counters
-  s.layers.forEach(el=>words(el,t,s.start+0.15));
+  if(s.t==='hook')s.layers.forEach(el=>el.querySelectorAll('.w').forEach(w=>{w.style.opacity=1;w.style.transform='none';}));
+  else s.layers.forEach(el=>words(el,t,s.start+0.15));
   const cv=seg(t,s.start+0.9,s.start+1.9);
-  if(s.t==='hook')s.val.textContent=fmt(s.value*eo(seg(t,0.25,1.5)),s.format);
+  if(s.t==='hook')s.val.textContent=fmt(s.value,s.format);
   if(s.value!==undefined&&s.t!=='hook')cam.querySelectorAll('.cnt').forEach(c=>{if(s.layers.some(l=>l.contains(c)))c.textContent=fmt(s.value*eo(cv),s.format||'int');});
   if(s.highlight&&s.val){const hl=s.val.querySelector('.hl');if(hl)hl.style.width=(s.val.querySelector('.cnt').offsetWidth+20)*eo(seg(t,s.start+2.0,s.start+2.4))+'px';}
 }

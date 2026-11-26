@@ -3,7 +3,8 @@
 **Idea: money becomes pixels.** One pool of orange squares runs through the whole reel and rearranges from scene to scene. In every scene each square means one stated unit (₹1,000, ₹1, one month), and the unit is written on screen.
 
 - **Format:** 1080×1920, 30 fps, 18–28 s. Text stays clear of the bottom 320 px and right 150 px (Instagram UI).
-- **Scenes:** hook (pixel ₹ + counted hero number from the first frame) → units / fill scenes → Night verdict → loop (the ₹ rebuilds so replays are seamless).
+- **Hook rule (learned from reel 1, 60% skip rate):** frame one carries the whole tension, fully on screen: the hero number at its final value and the line that explains it, ideally speaking to the viewer ("Paying only the minimum due?"). No fade-in and no count-up from zero in the hook; the loop ends on this same frame.
+- **Scenes:** hook (pixel ₹ + hero number + tension line, all visible at frame 0) → units / fill scenes → Night verdict → loop (the ₹ rebuilds so replays are seamless).
 - **Signature moves:** pixel build, count-up with Indian digit grouping, squares filling one per unit, highlighter swipe, orange pixel-bar wipe between scenes, hard cut to Night for the verdict.
 - **Never static:** slow 3.5% push-in on every scene.
 - **Rhythm:** 84 bpm; scene changes on bar lines; words land a quarter-beat apart.

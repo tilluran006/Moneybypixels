@@ -3,11 +3,17 @@
     {
       "date": "2026-11-25",
       "slug": "cc-two-year-trap",
+      "kind": "carousel",
       "type": "educational",
       "verdict_style": "night",
       "topic_id": "cc-two-year-trap",
       "title": "The Two-Year Trap: how a ₹50,000 credit card bill becomes ₹1.49 lakh",
-      "status": "posted"
+      "dir": "posts/2026-11-25-cc-two-year-trap",
+      "status": "posted",
+      "reel": {
+        "date": "2026-11-26",
+        "status": "draft"
+      }
     }
   ]
 }

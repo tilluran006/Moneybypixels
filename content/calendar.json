@@ -1,0 +1,18 @@
+{
+  "note": "Scheduled Indian money events. news_post: true marks events that should become the week's news carousel. verified: false means re-check the date on the official source 7 days ahead. Researched 25-26 Nov 2026. Context then: repo rate 5.50% after a hike on 7 Oct 2026; October CPI inflation 6.09%.",
+  "events": [
+    {"date": "2026-12-04", "name": "RBI monetary policy decision (repo rate)", "time_ist": "10:00", "news_post": true, "verified": true, "source": "https://www.rbi.org.in", "angle": "What the decision does to EMI on a ₹50 lakh, 20-year home loan. Prepare hike / pause versions."},
+    {"date": "2026-12-12", "name": "CPI inflation for November", "time_ist": "16:00", "news_post": true, "verified": false, "source": "https://www.mospi.gov.in", "angle": "Real return on an FD and a salary hike at the new inflation rate. 12 Dec is a Saturday: check MoSPI's release calendar; Sunday's post picks it up."},
+    {"date": "2026-12-15", "name": "Advance tax third instalment due", "news_post": false, "verified": false, "source": "https://www.incometax.gov.in", "angle": "Explainer only if confirmed under the Income-tax Act 2025."},
+    {"date": "2026-12-31", "name": "Last date for belated income-tax return (FY 2025-26 income)", "news_post": true, "verified": true, "source": "https://www.incometax.gov.in", "angle": "Late fee and interest on a ₹12 lakh salary if you miss it."},
+    {"date": "2026-12-31", "name": "Small savings rates for Jan-Mar 2027 announced", "time_ist": "evening", "news_post": true, "verified": false, "source": "https://dea.gov.in", "angle": "PPF / SSY / NSC rates vs inflation. Often announced in the evening: may need the next post day."},
+    {"date": "2027-01-12", "name": "CPI inflation for December", "time_ist": "16:00", "news_post": true, "verified": true, "source": "https://www.mospi.gov.in"},
+    {"date": "2027-02-01", "name": "Union Budget 2027-28", "news_post": true, "verified": false, "source": "https://www.indiabudget.gov.in", "angle": "Tax on a ₹12 lakh and ₹20 lakh salary, before vs after. Rupee impact only, no politics."},
+    {"date": "2027-02-05", "name": "RBI monetary policy decision (repo rate)", "time_ist": "10:00", "news_post": true, "verified": true, "source": "https://www.rbi.org.in"},
+    {"date": "2027-02-12", "name": "CPI inflation for January", "time_ist": "16:00", "news_post": true, "verified": true, "source": "https://www.mospi.gov.in"},
+    {"date": "2027-03-12", "name": "CPI inflation for February", "time_ist": "16:00", "news_post": true, "verified": true, "source": "https://www.mospi.gov.in"},
+    {"date": "2027-03-31", "name": "Last date for revised income-tax return; small savings rates for Apr-Jun", "news_post": true, "verified": false, "source": "https://www.incometax.gov.in"},
+    {"date": "2027-04-01", "name": "New financial year: GST procedural changes and any annual GST rate changes take effect", "news_post": true, "verified": false, "source": "https://gstcouncil.gov.in"},
+    {"date": "2027-07-31", "name": "ITR filing deadline (salaried)", "news_post": true, "verified": false, "source": "https://www.incometax.gov.in"}
+  ]
+}

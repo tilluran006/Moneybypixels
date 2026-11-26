@@ -5,7 +5,9 @@ Code that turns a money story into a finished Instagram carousel for **MoneyByPi
 - `studio/calc.py`: money calculators (credit card minimum due, fixed payments, EMI, inflation, SIP illustration, real return, no-cost EMI). Every number on a slide comes from here.
 - `studio/fmt.py`: Indian number formatting (₹1,49,095, ₹1.49 lakh).
 - `studio/render.py`: renders `posts/<dir>/spec.json` into 1080×1350 PNG slides, `caption.md` and `contact_sheet.png`, and refuses specs that break the brand rules.
-- `studio/plan.py`: today's plan (news or educational rotation, next topic, verdict style) and the post log.
+- `studio/plan.py`: what today's run makes (Wed/Fri/Sun carousels, Mon reel; news slot moves with `content/calendar.json`), next topic, verdict style, and the post log.
+- `studio/reel.py`: renders a post's `reel` block into a 1080×1920 MP4 with music, following `MOTION.md`.
+- `content/calendar.json`: scheduled Indian money events (RBI, CPI, tax deadlines, Budget).
 - `content/topics.json`: educational backlog. `content/feeds.json`: news sources and the story filter.
 - `posts/`: one folder per post, each with its `build.py`, `spec.json`, slides and caption.
 - `RUNBOOK.md`: the daily 5pm routine. `BRAND.md`: the visual rules.

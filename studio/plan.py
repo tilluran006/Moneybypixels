@@ -66,11 +66,6 @@ def today_plan(today: dt.date | None = None) -> dict:
     wd = today.weekday()
 
     if wd == REEL_DAY:
-        recent = [p for p in carousels if p.get("reel") and
-                  (today - dt.date.fromisoformat(p["reel"]["date"])).days <= 6]
-        if recent:
-            return {"date": today.isoformat(), "kind": "none",
-                    "note": f"This week's reel is already made ({recent[-1]['slug']}). Nothing to build today."}
         # explainers from the past 7 days that don't have a reel yet, oldest first
         since = today - dt.timedelta(days=7)
         cands = [p for p in carousels if p["type"] == "educational" and not p.get("reel")

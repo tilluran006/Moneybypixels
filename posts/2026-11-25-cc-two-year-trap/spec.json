@@ -692,10 +692,10 @@
       {
         "t": "hook",
         "bars": 1,
-        "kicker": "Credit cards · minimum due",
+        "kicker": "Paying only the minimum due?",
         "value": 51486,
         "format": "inr",
-        "caption": "paid back in 2 years|on a ₹50,000 card bill."
+        "caption": "paid on a ₹50,000 bill.|You still owe [[₹33,335]]."
       },
       {
         "t": "units",

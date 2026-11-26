@@ -80,8 +80,8 @@ spec["reel"] = {
   "bpm": 84,
   "footer": "Assumes ₹50,000 balance, 3.5%/month interest, minimum due 5% (min ₹200), no new spends. Educational, not financial advice.",
   "scenes": [
-    {"t": "hook", "bars": 1, "kicker": "Credit cards · minimum due", "value": round(tp[24]), "format": "inr",
-     "caption": "paid back in 2 years|on a ₹50,000 card bill."},
+    {"t": "hook", "bars": 1, "kicker": "Paying only the minimum due?", "value": round(tp[24]), "format": "inr",
+     "caption": f"paid on a ₹50,000 bill.|You still owe [[{inr(b[24])}]]."},
     {"t": "units", "bars": 1, "headline": "More than you borrowed.|And you still owe", "value": round(b[24]), "format": "inr",
      "highlight": True, "n": 50, "k": round(b[24] / 1000), "cols": 10, "unit": "Each square = ₹1,000 · ■ still owed"},
     {"t": "units", "bars": 1, "kicker": "Year one", "headline": "Of every ₹100 you paid,|{{₹#}} went to interest.", "value": y1_share,

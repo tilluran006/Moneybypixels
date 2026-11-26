@@ -7,7 +7,8 @@ square means something; slow push-in on every hold; words land on the beat;
 cuts on bar lines; orange pixel-bar wipes; Night cut for the verdict; loop ending.
 
 Scene types (fields):
-  hook     kicker, value, format, caption            pixel ₹ + counted hero number
+  hook     question (ends '?', max 8 words), value, format, caption with [[tension]]
+           everything visible at frame 0; number pulses and highlighter swipes in the first 0.5 s
   units    kicker?, headline, value?, format?, n, k, cols?, unit, k_style?
            n squares, k highlighted; '#' in headline = the counted value inline
   fill     headline, counter ('{i}' = squares so far), n, style (main|compare),
@@ -52,18 +53,19 @@ function layer(html,style){const d=document.createElement('div');d.className='L'
 const rup=[];G.forEach((r,ri)=>[...r].forEach((c,ci)=>{if(c==='#')rup.push([ci,ri]);}));
 const N=Math.max(rup.length,...R.scenes.map(s=>s.n||0));
 const pool=document.getElementById('pool'),P=[];for(let i=0;i<N;i++){const d=document.createElement('div');d.className='px';pool.appendChild(d);P.push(d);}
-function Lrupee(i){const c=52;if(i<rup.length){const[cx,cy]=rup[i];const acc=(cy==0&&cx==7)||(cy==10&&cx==7);return[332+cx*c,380+cy*c,46,acc?EM:OR,1];}return[540,650,0,OR,0];}
+function Lrupee(i){const c=40;if(i<rup.length){const[cx,cy]=rup[i];const acc=(cy==0&&cx==7)||(cy==10&&cx==7);return[380+cx*c,470+cy*c,35,acc?EM:OR,1];}return[540,690,0,OR,0];}
 const HID=i=>[540,960,0,OR,0];
 // ---- build scenes
 R.scenes.forEach((s,idx)=>{
   s.layers=[];
   const night=s.t==='verdict'; const acc=night?EM:(s.style==='compare'?BL:OR);
   let y=300;
-  if(s.kicker){s.layers.push(layer(`<span class="kick" style="color:${night?'#EFE8DB':OR}">${s.kicker}</span>`,`left:90px;top:${night?520:300}px`));y=360;}
+  if(s.kicker&&s.t!=='hook'){s.layers.push(layer(`<span class="kick" style="color:${night?'#EFE8DB':OR}">${s.kicker}</span>`,`left:90px;top:${night?520:300}px`));y=360;}
   if(s.t==='hook'){
-    s.val=layer('','left:84px;top:980px;font-size:210px;line-height:210px;color:'+OR+';letter-spacing:-.02em;font-family:"Source Serif 4";font-weight:600');
+    s.layers.push(layer(s.question,'left:90px;top:290px;width:900px;font-size:62px;line-height:70px;font-family:"Source Serif 4";font-weight:600;color:'+OR));
+    s.val=layer('','left:84px;top:930px;transform-origin:0 50%;font-size:210px;line-height:210px;color:'+OR+';letter-spacing:-.02em;font-family:"Source Serif 4";font-weight:600');
     s.val.dataset.always=1;
-    s.layers.push(layer(mk(prep(s.caption),OR),'left:90px;top:1210px;width:900px;font-size:64px;line-height:74px;font-family:"Source Serif 4";font-weight:600'));
+    s.layers.push(s.capEl=layer(mk(prep(s.caption),OR),'left:90px;top:1160px;width:900px;font-size:64px;line-height:74px;font-family:"Source Serif 4";font-weight:600'));
     s.layout=Lrupee; s.endLayout=Lrupee;
   }
   if(s.t==='units'){
@@ -121,7 +123,7 @@ function render(t){
   // layers visibility
   R.scenes.forEach((x,k)=>{x.layers.forEach(el=>{el.style.opacity=(x.t==='hook'&&(k===si||inLoop))?(inLoop?seg(t,LOOP+0.1,LOOP+0.35):1-seg(t,x.start+x.dur-0.15,x.start+x.dur)):k===si?Math.min(seg(t,x.start+0.1,x.start+0.35),1-seg(t,x.start+x.dur-0.15,x.start+x.dur)):0;});
     if(x.val&&x.t==='hook')x.val.style.opacity=(k===si||inLoop)?1:0;});
-  if(inLoop){const h=R.scenes[0];h.val.textContent=fmt(h.value,h.format);h.layers.forEach(el=>el.querySelectorAll('.w').forEach(w=>{w.style.opacity=1;w.style.transform='none';}));
+  if(inLoop){const h=R.scenes[0];h.val.textContent=fmt(h.value,h.format);h.layers.forEach(el=>el.querySelectorAll('.w').forEach(w=>{w.style.opacity=1;w.style.transform='none';}));h.val.style.transform='none';
     place(i=>{const r=Lrupee(i);return[r[0],r[1],r[2],r[3],r[4]*eo(seg(t,LOOP+0.25+i*0.012,LOOP+0.5+i*0.012))];});return;}
   // pixels
   const prev=si>0?R.scenes[si-1]:null; const mp=seg(t,s.start-0.05,s.start+0.7);
@@ -145,7 +147,9 @@ function render(t){
   if(s.t==='hook')s.layers.forEach(el=>el.querySelectorAll('.w').forEach(w=>{w.style.opacity=1;w.style.transform='none';}));
   else s.layers.forEach(el=>words(el,t,s.start+0.15));
   const cv=seg(t,s.start+0.9,s.start+1.9);
-  if(s.t==='hook')s.val.textContent=fmt(s.value,s.format);
+  if(s.t==='hook'){s.val.textContent=fmt(s.value,s.format);
+    s.val.style.transform=`scale(${1.08-0.08*eo(seg(t,0,0.4))})`;
+    s.capEl.querySelectorAll('.mark i').forEach(i=>{const p=eo(seg(t,0.1,0.5));i.style.width=`calc(${p*100}% + ${p*20}px)`;});}
   if(s.value!==undefined&&s.t!=='hook')cam.querySelectorAll('.cnt').forEach(c=>{if(s.layers.some(l=>l.contains(c)))c.textContent=fmt(s.value*eo(cv),s.format||'int');});
   if(s.highlight&&s.val){const hl=s.val.querySelector('.hl');if(hl)hl.style.width=(s.val.querySelector('.cnt').offsetWidth+20)*eo(seg(t,s.start+2.0,s.start+2.4))+'px';}
 }
@@ -275,12 +279,19 @@ def check(reel: dict) -> list[str]:
     errs = []
     sc = reel.get("scenes", [])
     if not sc or sc[0]["t"] != "hook": errs.append("first scene must be a hook")
+    if sc and sc[0]["t"] == "hook":
+        h = sc[0]
+        if not h.get("question", "").strip().endswith("?"): errs.append("hook needs a 'question' that speaks to the viewer and ends with '?'")
+        if "[[" not in h.get("caption", ""): errs.append("hook caption must highlight the tension with [[...]]")
+        if len(h.get("question", "").split()) > 8: errs.append("hook question max 8 words")
+    if len(sc) > 5: errs.append(f"{len(sc)} scenes (max 5: hook, 2-3 middle, verdict)")
     if sc and sc[-1]["t"] != "verdict": errs.append("last scene must be a verdict")
-    total = sum(s["bars"] for s in sc) * 4 * 60 / reel.get("bpm", 84)
-    if not 15 <= total <= 32: errs.append(f"reel length {total:.1f}s (want 15-32s)")
+    total = (sum(s["bars"] for s in sc) + 0.4) * 4 * 60 / reel.get("bpm", 84)
+    if not 14 <= total <= 22: errs.append(f"reel length {total:.1f}s (want 15-20s, max 22s)")
     for i, s in enumerate(sc, 1):
         if s.get("n", 0) > 240: errs.append(f"scene {i}: max 240 squares")
         if s["t"] == "units" and s.get("k", 0) > s.get("n", 0): errs.append(f"scene {i}: k > n")
+        if s["t"] == "fill" and len(s.get("headline", "")) > 28: errs.append(f"scene {i}: fill headline max 28 characters (one line)")
         if s["t"] == "fill" and s.get("meter") and len(s["meter"]["values"]) < s["n"] + 1: errs.append(f"scene {i}: meter needs n+1 values")
     return errs
 
@@ -327,7 +338,7 @@ def render(post_dir: str) -> Path:
     shutil.rmtree(frames); wav.unlink(); page.unlink()
     cap = reel.get("caption", spec["caption"])
     tags = " ".join("#" + t for t in spec.get("hashtags", []))
-    (out / "caption_reel.md").write_text(f"# Reel: {spec['title']}\n\nPost on Monday. Add a low-key trending track in Instagram if you like; the file already has its own music.\n\n```\n{cap.strip()}\n\n{tags}\n```\n")
+    (out / "caption_reel.md").write_text(f"# Reel: {spec['title']}\n\nPost on Monday **as a Trial Reel** first (shown to non-followers only). After 24-48 hours check the skip rate: if it beats the page's last reel, share it to your profile; if not, leave it as a trial and note what the hook was. The file already has its own music.\n\n```\n{cap.strip()}\n\n{tags}\n```\n")
     return mp4
 
 
